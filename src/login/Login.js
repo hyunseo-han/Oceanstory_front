@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import ReactDOM from "react-dom";
 import Styled from "styled-components";
 
@@ -64,13 +64,16 @@ const Password = Styled.div`
   margin: auto;
 `;
 
-const PasswordBox = Styled.input`
+const PasswordBox = Styled.input.attrs({
+  type: "password",
+})`
   position: relative;
   width: 228px;
   height: 40px;
   background: #ffffff;
   border-radius: 6px;
   border: none;
+  type: "password";
 `;
 
 const Forget = Styled.div`
@@ -134,14 +137,26 @@ const Div = Styled.div`
 
 //시간이 되면 비밀번호 확인칸도 만들면 좋을듯 (백엔드 없이 프론트로 해결 가능해서!)
 function Login() {
+  const [userName, setUserName] = useState(null);
+  const [password, setPassword] = useState(null);
+  console.log(userName, "//", password);
+
   return (
     <Background className="Background">
       <SignIn className="SignIn">LOG IN</SignIn>
       <Div className="Box">
         <UserName className="UserName">User name</UserName>
-        <UserNameBox className="UserNameBox"></UserNameBox>
+        <UserNameBox
+          className="UserNameBox"
+          onChange={(e) => setUserName(e.target.value)}
+          value={userName}
+        ></UserNameBox>
         <Password className="Password">Password</Password>
-        <PasswordBox className="PasswordBox"></PasswordBox>
+        <PasswordBox
+          className="PasswordBox"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        ></PasswordBox>
         <Forget className="Forget">forget your password?</Forget>
         <SignInBtn className="SignInBtn">
           <SignInBtnLetter className="SignInBtnLetter">LOG in</SignInBtnLetter>
