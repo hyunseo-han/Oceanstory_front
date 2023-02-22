@@ -1,28 +1,18 @@
 import React from "react";
-import { ReactDOM } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import exampleIMG from "./img/example.png";
 
 import Login from "./login/Login";
 import Join from "./login/Join";
 
-//Background CSS 바꿀것
-//height: 511.69px;
 const Background = styled.div`
-  height: 1000px;
-  background: linear-gradient(
-      187.08deg,
-      #91c7ff 5.52%,
-      rgba(255, 255, 255, 0) 106.67%
-    ),
-    #bfb0ff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.div`
   position: relative;
-  height: 128.14px;
-  top: 142px;
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
@@ -37,8 +27,6 @@ const Title = styled.div`
 
 const SubTitle = styled.div`
   position: relative;
-  height: 81.86px;
-  top: 116px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -56,8 +44,6 @@ const LoginBtn = styled.div`
   position: relative;
   width: 299px;
   height: 46.51px;
-  top: 300px;
-  margin: auto;
   background: linear-gradient(
       109.78deg,
       #788eff 37.44%,
@@ -72,8 +58,6 @@ const JoinBtn = styled.div`
   position: relative;
   width: 299px;
   height: 46.51px;
-  top: 314.33px;
-  margin: auto;
   background: linear-gradient(
       109.78deg,
       #788eff 37.44%,
@@ -123,9 +107,6 @@ const JoinBtnLetter = styled.div`
 const Chracter = styled.div`
   position: relative;
   width: 127px;
-  height: 211px;
-  top: 144px;
-  margin: auto;
 `;
 
 /////////////////////////////////////////////////////////////////////////
@@ -134,20 +115,25 @@ function Main() {
   const navigate = useNavigate();
 
   const goToLogin = () => {
-    console.log("goToLogin");
-    //return <Navigate to="Login" />;
-    navigate("/login/Login");
+    navigate("/login");
   };
 
   const goToJoin = () => {
-    console.log("goToJoin");
-    //return <Navigate to="Join" />;
-    navigate("/login/Join");
+    navigate("/join");
   };
 
   return (
-    <div className="Main">
-      <Background>
+    <Background>
+      <div
+        style={{
+          flex: "0 0 70%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          gap: "3rem",
+        }}
+      >
         <Title>
           OCEAN
           <br /> STORY
@@ -157,16 +143,28 @@ function Main() {
           <br /> 우리의 이야기
         </SubTitle>
         <Chracter>
-          <img src={exampleIMG} alt="Image" />
+          <img src={"/img/example.png"} alt="Image" />
         </Chracter>
+      </div>
+
+      <div
+        style={{
+          flex: "0 0 30%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
         <LoginBtn>
           <LoginBtnLetter onClick={goToLogin}>로그인</LoginBtnLetter>
         </LoginBtn>
         <JoinBtn>
           <JoinBtnLetter onClick={goToJoin}>회원가입</JoinBtnLetter>
         </JoinBtn>
-      </Background>
-    </div>
+      </div>
+    </Background>
   );
 }
 
