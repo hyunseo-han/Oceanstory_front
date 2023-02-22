@@ -4,13 +4,7 @@ import Styled from "styled-components";
 
 //height: 511.69px; 임시로 1000px 설정해놓은것
 const Background = Styled.div`
-  height: 1000px;
-  background: linear-gradient(
-      187.08deg,
-      #91c7ff 5.52%,
-      rgba(255, 255, 255, 0) 106.67%
-    ),
-    #bfb0ff;
+  height: 100%;
 `;
 
 const SignIn = Styled.div`
