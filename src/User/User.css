@@ -1,0 +1,82 @@
+.selection-selection-wrapper {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.selection-selection {
+  height: 1600px;
+  width: 803px;
+}
+
+.slection-view {
+  height: 190px;
+  position: relative;
+  width: 345px;
+}
+
+.selection-overlap-group {
+  background: linear-gradient(
+    180deg,
+    rgba(1.87, 0, 93.5, 0.4) 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  border-radius: 53px;
+  height: 125px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 341px;
+}
+
+.selection-n {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 41px;
+  left: 22px;
+  letter-spacing: 3.96;
+  line-height: 24px;
+  position: absolute;
+  text-align: center;
+  top: 18px;
+  width: 311px;
+}
+
+.selection-MM-DD-HH-MM {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  height: 46px;
+  left: 27px;
+  letter-spacing: 3.96px;
+  line-height: 24px;
+  position: absolute;
+  text-align: center;
+  top: 59px;
+  width: 280px;
+}
+
+.selection-element {
+  background-color: #8ee3ff9e;
+  border-radius: 11px;
+  height: 22px;
+  left: 252px;
+  position: absolute;
+  top: 147px;
+  width: 22px;
+}
+
+.selection-element-1 {
+  background-color: #8ee3ff9e;
+  border-radius: 7px;
+  height: 14px;
+  left: 234px;
+  position: absolute;
+  top: 176px;
+  width: 14px;
+}
