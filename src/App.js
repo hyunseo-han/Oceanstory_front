@@ -12,9 +12,26 @@ import { GlobalStyle } from "./style";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 
+const AppLayout = styled.section`
+   {
+    & {
+      min-width: 500px;
+      width: 50vw;
+      height: 100vh;
+      margin: 0 auto;
+      background: linear-gradient(
+          187.08deg,
+          #91c7ff 5.52%,
+          rgba(255, 255, 255, 0) 106.67%
+        ),
+        #bfb0ff;
+    }
+  }
+`;
+
 function App() {
   return (
-    <div className="App">
+    <AppLayout>
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Main />} />
@@ -30,7 +47,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-    </div>
+    </AppLayout>
   );
 }
 
