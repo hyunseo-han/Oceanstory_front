@@ -1,8 +1,6 @@
 import React from "react";
-import { ReactDOM } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import exampleIMG from "./img/example.png";
 
 import Login from "./login/Login";
 import Join from "./login/Join";
@@ -134,15 +132,11 @@ function Main() {
   const navigate = useNavigate();
 
   const goToLogin = () => {
-    console.log("goToLogin");
-    //return <Navigate to="Login" />;
-    navigate("/login/Login");
+    navigate("/login");
   };
 
   const goToJoin = () => {
-    console.log("goToJoin");
-    //return <Navigate to="Join" />;
-    navigate("/login/Join");
+    navigate("/join");
   };
 
   return (
@@ -157,7 +151,7 @@ function Main() {
           <br /> 우리의 이야기
         </SubTitle>
         <Chracter>
-          <img src={exampleIMG} alt="Image" />
+          <img src={"/img/example.png"} alt="Image" />
         </Chracter>
         <LoginBtn>
           <LoginBtnLetter onClick={goToLogin}>로그인</LoginBtnLetter>
