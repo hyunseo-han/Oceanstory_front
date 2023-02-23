@@ -1,5 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ButtonStyle = styled.div`
@@ -8,6 +6,7 @@ const ButtonStyle = styled.div`
     align-items: center;
     text-align: center;
     justify-content: center;
+    align-items: center;
     width: ${(props) => props.width};
     height: 46.51px;
 
@@ -25,23 +24,26 @@ const ButtonStyle = styled.div`
     border-radius: 9px;
     cursor: pointer;
 
-    > a {
-      text-decoration: none;
-      font-family: "Saira";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 124.19%;
-      color: #ffffff;
-    }
+    text-decoration: none;
+    font-family: "Saira";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 124.19%;
+    color: #ffffff;
   }
 `;
 
-const Button = ({ text, width = "100%", link = null }) => {
+const Button = ({ text, width = "100%", link = null, onClickEvent = null }) => {
   return (
     <>
-      <ButtonStyle width={width}>
-        {link ? <Link to={`${link}`}>{text}</Link> : { text }}
+      <ButtonStyle
+        width={width}
+        onClick={() => {
+          onClickEvent && onClickEvent();
+        }}
+      >
+        {text}
       </ButtonStyle>
     </>
   );

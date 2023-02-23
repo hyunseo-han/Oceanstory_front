@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./common/Button";
@@ -47,13 +46,8 @@ const Chracter = styled.div`
 
 function Main() {
   const navigate = useNavigate();
-
-  const goToLogin = () => {
-    navigate("/login");
-  };
-
-  const goToJoin = () => {
-    navigate("/join");
+  const goPage = (link) => {
+    navigate(link);
   };
 
   return (
@@ -91,12 +85,26 @@ function Main() {
           gap: "1rem",
         }}
       >
-        <Button text={"로그인"} width={"70%"} link={`/login`}></Button>
-        <Button text={"회원가입"} width={"70%"} link={`/join`}></Button>
+        <Button
+          text={"로그인"}
+          width={"70%"}
+          onClickEvent={() => {
+            goPage(`/login`);
+          }}
+        ></Button>
+        <Button
+          text={"회원가입"}
+          width={"70%"}
+          onClickEvent={() => {
+            goPage(`/join`);
+          }}
+        ></Button>
         <Button
           text={"편지 쓰러 가기"}
           width={"70%"}
-          link={`/write-letter`}
+          onClickEvent={() => {
+            goPage(`/write-letter`);
+          }}
         ></Button>
       </div>
     </Background>
