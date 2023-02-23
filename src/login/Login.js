@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-// import ReactDOM from "react-dom";
+import React, { useState, useCallback } from "react";
 import Styled from "styled-components";
+import axios from "axios";
 
 //height: 511.69px; 임시로 1000px 설정해놓은것
 const Background = Styled.div`
@@ -134,12 +134,33 @@ const Div = Styled.div`
   text-align: center;
   justify-content: space-between;
 `;
-
+const basicUrl = "https://e354-222-109-179-177.jp.ngrok.io";
 //시간이 되면 비밀번호 확인칸도 만들면 좋을듯 (백엔드 없이 프론트로 해결 가능해서!)
 function Login() {
   const [userName, setUserName] = useState(null);
   const [password, setPassword] = useState(null);
-  console.log(userName, "//", password);
+
+  const login = useCallback(async () => {
+    axios
+      .post(
+        `${basicUrl}/users/login/`,
+        {
+          username: "cjsalsdn",
+          password: "cjasldn1",
+        },
+        {
+          "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+          Accept: "*/*",
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((response) => {
+        alert("로그인에 실패했습니다.");
+      });
+  }, [userName, password]);
+  // const login = () => {};
 
   return (
     <Background className="Background">
@@ -158,7 +179,12 @@ function Login() {
           value={password}
         ></PasswordBox>
         <Forget className="Forget">forget your password?</Forget>
-        <SignInBtn className="SignInBtn">
+        <SignInBtn
+          className="SignInBtn"
+          onClick={() => {
+            login();
+          }}
+        >
           <SignInBtnLetter className="SignInBtnLetter">LOG in</SignInBtnLetter>
         </SignInBtn>
       </Div>
