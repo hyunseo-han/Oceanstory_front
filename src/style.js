@@ -4,12 +4,12 @@ import reset from "styled-reset";
 export const GlobalStyle = createGlobalStyle`
 ${reset}
     @font-face{
-        font-family: 'Roboto';
-        src: local('Roboto');
+        font-family: 'BM Dohyeon';
+        src: local('BM Dohyeon');
     }
 
     body {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'BM Dohyeon', sans-serif;
         background-color: #FFFEFA;
     }
     
