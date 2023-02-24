@@ -1,27 +1,18 @@
-import React from "react";
-import { ReactDOM } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Login from "./login/Login";
 import Join from "./login/Join";
 import "./bubble.css";
+import Button from "./common/Button";
 
-//Background CSS 바꿀것
-//height: 511.69px;
 const Background = styled.div`
-  height: 1000px;
-  background: linear-gradient(
-      187.08deg,
-      #91c7ff 5.52%,
-      rgba(255, 255, 255, 0) 106.67%
-    ),
-    #bfb0ff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.div`
   position: relative;
-  height: 128.14px;
-  top: 142px;
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
@@ -36,8 +27,6 @@ const Title = styled.div`
 
 const SubTitle = styled.div`
   position: relative;
-  height: 81.86px;
-  top: 116px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -51,114 +40,9 @@ const SubTitle = styled.div`
   color: #000000;
 `;
 
-const LoginBtn = styled.div`
-  position: relative;
-  width: 299px;
-  height: 46.51px;
-  top: 300px;
-  margin: auto;
-  background: linear-gradient(
-      109.78deg,
-      #788eff 37.44%,
-      rgba(255, 255, 255, 0) 196.54%
-    ),
-    linear-gradient(108.83deg, #000000 165.46%, rgba(255, 255, 255, 0) 210.88%);
-  border-radius: 9px;
-  cursor: pointer;
-`;
-
-const JoinBtn = styled.div`
-  position: relative;
-  width: 299px;
-  height: 46.51px;
-  top: 314.33px;
-  margin: auto;
-  background: linear-gradient(
-      109.78deg,
-      #788eff 37.44%,
-      rgba(255, 255, 255, 0) 196.54%
-    ),
-    linear-gradient(108.83deg, #000000 165.46%, rgba(255, 255, 255, 0) 210.88%);
-  border-radius: 9px;
-  cursor: pointer;
-`;
-
-const LoginBtnLetter = styled.div`
-  width: 202.97px;
-  height: 50px;
-  left: 113.01px;
-  top: 636px;
-  font-family: "Saira";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 124.19%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  color: #ffffff;
-`;
-
-const JoinBtnLetter = styled.div`
-  width: 202.97px;
-  height: 50px;
-  left: 113.01px;
-  top: 698px;
-  font-family: "Saira";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 124.19%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  color: #ffffff;
-`;
-
-const WriteBtn = styled.div`
-  position: relative;
-  width: 299px;
-  height: 46.51px;
-  top: 329px;
-  margin: auto;
-  background: linear-gradient(
-      109.78deg,
-      #788eff 37.44%,
-      rgba(255, 255, 255, 0) 196.54%
-    ),
-    linear-gradient(108.83deg, #000000 165.46%, rgba(255, 255, 255, 0) 210.88%);
-  border-radius: 9px;
-  cursor: pointer;
-`;
-
-const WriteLetter = styled.div`
-  width: 202.97px;
-  height: 50px;
-  left: 113.01px;
-  top: 698px;
-  font-family: "Saira";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 124.19%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  color: #ffffff;
-`;
-
 const Chracter = styled.div`
   position: relative;
   width: 127px;
-  height: 211px;
-  top: 144px;
-  margin: auto;
 `;
 
 /////////////////////////////////////////////////////////////////////////
@@ -166,27 +50,23 @@ const Chracter = styled.div`
 function Main() {
   const navigate = useNavigate();
 
-  const goToLogin = () => {
-    console.log("goToLogin");
-    //return <Navigate to="Login" />;
-    navigate("/Login");
-  };
-
-  const goToJoin = () => {
-    console.log("goToJoin");
-    //return <Navigate to="Join" />;
-    navigate("/Join");
-  };
-
-  //수정할것!
-  const goToWrtie = () => {
-    navigate("/");
+  const goPage = (link) => {
+    navigate(link);
   };
 
   //onclick버튼으로 바꾸기
   return (
-    <div className="Main">
-      <Background>
+    <Background>
+      <div
+        style={{
+          flex: "0 0 65%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          gap: "3rem",
+        }}
+      >
         <Title>
           OCEAN
           <br /> STORY
@@ -196,6 +76,7 @@ function Main() {
           <br /> 우리의 이야기
         </SubTitle>
         <Chracter>
+
           <img
             src={process.env.PUBLIC_URL + "/img/example.png"}
             alt="exampleIMG"
@@ -224,6 +105,41 @@ function Main() {
         <div class="bubble bubble--12"></div>
       </Background>
     </div>
+
+      <div
+        style={{
+          flex: "0 0 35%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
+        <Button
+          text={"로그인"}
+          width={"70%"}
+          onClickEvent={() => {
+            goPage(`/login`);
+          }}
+        ></Button>
+        <Button
+          text={"회원가입"}
+          width={"70%"}
+          onClickEvent={() => {
+            goPage(`/join`);
+          }}
+        ></Button>
+        <Button
+          text={"편지 쓰러 가기"}
+          width={"70%"}
+          onClickEvent={() => {
+            goPage(`/write-letter`);
+          }}
+        ></Button>
+      </div>
+    </Background>
+
   );
 }
 
