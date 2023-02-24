@@ -1,9 +1,6 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
-import Login from "./login/Login";
-import Join from "./login/Join";
+import Button from "./common/Button";
 
 const Background = styled.div`
   height: 100%;
@@ -40,70 +37,6 @@ const SubTitle = styled.div`
   color: #000000;
 `;
 
-const LoginBtn = styled.div`
-  position: relative;
-  width: 299px;
-  height: 46.51px;
-  background: linear-gradient(
-      109.78deg,
-      #788eff 37.44%,
-      rgba(255, 255, 255, 0) 196.54%
-    ),
-    linear-gradient(108.83deg, #000000 165.46%, rgba(255, 255, 255, 0) 210.88%);
-  border-radius: 9px;
-  cursor: pointer;
-`;
-
-const JoinBtn = styled.div`
-  position: relative;
-  width: 299px;
-  height: 46.51px;
-  background: linear-gradient(
-      109.78deg,
-      #788eff 37.44%,
-      rgba(255, 255, 255, 0) 196.54%
-    ),
-    linear-gradient(108.83deg, #000000 165.46%, rgba(255, 255, 255, 0) 210.88%);
-  border-radius: 9px;
-  cursor: pointer;
-`;
-
-const LoginBtnLetter = styled.div`
-  width: 202.97px;
-  height: 50px;
-  left: 113.01px;
-  top: 636px;
-  font-family: "Saira";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 124.19%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  color: #ffffff;
-`;
-
-const JoinBtnLetter = styled.div`
-  width: 202.97px;
-  height: 50px;
-  left: 113.01px;
-  top: 698px;
-  font-family: "Saira";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 124.19%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  color: #ffffff;
-`;
-
 const Chracter = styled.div`
   position: relative;
   width: 127px;
@@ -113,20 +46,15 @@ const Chracter = styled.div`
 
 function Main() {
   const navigate = useNavigate();
-
-  const goToLogin = () => {
-    navigate("/login");
-  };
-
-  const goToJoin = () => {
-    navigate("/join");
+  const goPage = (link) => {
+    navigate(link);
   };
 
   return (
     <Background>
       <div
         style={{
-          flex: "0 0 70%",
+          flex: "0 0 65%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
@@ -149,7 +77,7 @@ function Main() {
 
       <div
         style={{
-          flex: "0 0 30%",
+          flex: "0 0 35%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -157,12 +85,27 @@ function Main() {
           gap: "1rem",
         }}
       >
-        <LoginBtn>
-          <LoginBtnLetter onClick={goToLogin}>로그인</LoginBtnLetter>
-        </LoginBtn>
-        <JoinBtn>
-          <JoinBtnLetter onClick={goToJoin}>회원가입</JoinBtnLetter>
-        </JoinBtn>
+        <Button
+          text={"로그인"}
+          width={"70%"}
+          onClickEvent={() => {
+            goPage(`/login`);
+          }}
+        ></Button>
+        <Button
+          text={"회원가입"}
+          width={"70%"}
+          onClickEvent={() => {
+            goPage(`/join`);
+          }}
+        ></Button>
+        <Button
+          text={"편지 쓰러 가기"}
+          width={"70%"}
+          onClickEvent={() => {
+            goPage(`/write-letter`);
+          }}
+        ></Button>
       </div>
     </Background>
   );
