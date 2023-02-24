@@ -14,18 +14,35 @@ import { GlobalStyle } from "./style";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 
+const AppLayout = styled.section`
+   {
+    & {
+      min-width: 500px;
+      width: 50vw;
+      height: 100vh;
+      margin: 0 auto;
+      background: linear-gradient(
+          187.08deg,
+          #91c7ff 5.52%,
+          rgba(255, 255, 255, 0) 106.67%
+        ),
+        #bfb0ff;
+    }
+  }
+`;
+
 function App() {
   return (
-    <div className="App">
+    <AppLayout>
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Main />} />
-          <Route path={"/Login"} element={<Login />} />
-          <Route path={"/Join"} element={<Join />} />
-          <Route path={"/User"} element={<User />} />
-          <Route path={"/Letter"} element={<Letter />} />
-          <Route path={"/LetterByDate"} element={<LetterByDate />} />
-          <Route path={"/WriteLetter"} element={<WriteLetter />} />
+          <Route path={"/login"} element={<Login />} />
+          <Route path={"/join"} element={<Join />} />
+          <Route path={"/user"} element={<User />} />
+          <Route path={"/letter"} element={<Letter />} />
+          <Route path={"/letter-by-date"} element={<LetterByDate />} />
+          <Route path={"/write-letter"} element={<WriteLetter />} />
           <Route
             path={"/SuccessfullySended"}
             element={<SuccessfullySended />}
@@ -33,7 +50,7 @@ function App() {
           <Route path={"/Letters"} element={<Letters />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </AppLayout>
   );
 }
 
