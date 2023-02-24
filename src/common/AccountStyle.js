@@ -53,3 +53,16 @@ export const AccountContainer = Styled.section`
   }
 }
 `;
+
+export const InputBox = Styled.input`
+  position: relative;
+  width: 228px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 6px;
+  border: none;
+`;
+
+export const PasswordBox = Styled(InputBox).attrs({
+  type: "password",
+})``;
