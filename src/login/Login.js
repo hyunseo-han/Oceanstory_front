@@ -1,22 +1,12 @@
 import React, { useState, useCallback } from "react";
-import Styled from "styled-components";
 import axios from "axios";
 import Button from "../common/Button";
 import { useNavigate } from "react-router-dom";
-import { AccountContainer } from "../common/AccountStyle";
-
-const InputBox = Styled.input`
-  position: relative;
-  width: 228px;
-  height: 40px;
-  background: #ffffff;
-  border-radius: 6px;
-  border: none;
-`;
-
-const PasswordBox = Styled(InputBox).attrs({
-  type: "password",
-})``;
+import {
+  AccountContainer,
+  InputBox,
+  PasswordBox,
+} from "../common/AccountStyle";
 
 const basicUrl =
   "https://509b-2001-e60-9269-c793-985-f194-41df-a594.jp.ngrok.io";
@@ -56,13 +46,11 @@ function Login() {
       <div className="input-wrap">
         <div className="text">User name</div>
         <InputBox
-          className="UserNameBox"
           onChange={(e) => setUserName(e.target.value)}
           value={userName}
         ></InputBox>
         <div className="text">Password</div>
         <PasswordBox
-          className="PasswordBox"
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         ></PasswordBox>
