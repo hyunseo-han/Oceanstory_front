@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Login from "./login/Login";
 import Join from "./login/Join";
+import "./bubble.css";
 
 //Background CSS 바꿀것
 //height: 511.69px;
@@ -177,8 +178,9 @@ function Main() {
     navigate("/Join");
   };
 
+  //수정할것!
   const goToWrtie = () => {
-    navigate("/WriteLetter");
+    navigate("/");
   };
 
   //onclick버튼으로 바꾸기
@@ -208,6 +210,18 @@ function Main() {
         <WriteBtn>
           <WriteLetter onClick={goToWrtie}>편지 쓰기</WriteLetter>
         </WriteBtn>
+        <div class="bubble bubble--1"></div>
+        <div class="bubble bubble--2"></div>
+        <div class="bubble bubble--3"></div>
+        <div class="bubble bubble--4"></div>
+        <div class="bubble bubble--5"></div>
+        <div class="bubble bubble--6"></div>
+        <div class="bubble bubble--7"></div>
+        <div class="bubble bubble--8"></div>
+        <div class="bubble bubble--9"></div>
+        <div class="bubble bubble--10"></div>
+        <div class="bubble bubble--11"></div>
+        <div class="bubble bubble--12"></div>
       </Background>
     </div>
   );

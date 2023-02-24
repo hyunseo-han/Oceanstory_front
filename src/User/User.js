@@ -114,7 +114,8 @@ function Main() {
     }
     timer = setInterval(showRemaining, 1000);
   }
-  CountDownTimer("02/25/2023 10:50:00", "timeDeal");
+  //요걸로 시간 설정해주기
+  CountDownTimer("02/26/2023 00:00:00", "timeDeal");
 
   return (
     <div className="Main">

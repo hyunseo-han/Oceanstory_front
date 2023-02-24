@@ -24,7 +24,7 @@ const Div = Styled.div`
 
 const DateBox = Styled.div`
   position: relative;
-  width: 85%;
+  width: 95%;
   height: 48px;
   top: 36px;
   background: #ffffff;
@@ -52,20 +52,21 @@ const ContentBox = Styled.div`
   position: relative;
   height: 120px;
   width: 120px; 
-  left: 10px;
   background: #ffffff;
   border-radius: 39px;
   float: left; 
-  
   margin-right: 10px;
 `;
 
 const ContentContainer = Styled.div`
   position: relative;
   height: 120px;
+  width: 95%;
+  margin: auto;
   top: 50px;
   overflow-x: auto;
 `;
+
 //스크롤 이상함
 function LetterByDate() {
   const [posts, setPosts] = useState([]);
