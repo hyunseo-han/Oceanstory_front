@@ -76,35 +76,12 @@ function Main() {
           <br /> 우리의 이야기
         </SubTitle>
         <Chracter>
-
           <img
             src={process.env.PUBLIC_URL + "/img/example.png"}
             alt="exampleIMG"
           />
         </Chracter>
-        <LoginBtn>
-          <LoginBtnLetter onClick={goToLogin}>로그인</LoginBtnLetter>
-        </LoginBtn>
-        <JoinBtn>
-          <JoinBtnLetter onClick={goToJoin}>회원가입</JoinBtnLetter>
-        </JoinBtn>
-        <WriteBtn>
-          <WriteLetter onClick={goToWrtie}>편지 쓰기</WriteLetter>
-        </WriteBtn>
-        <div class="bubble bubble--1"></div>
-        <div class="bubble bubble--2"></div>
-        <div class="bubble bubble--3"></div>
-        <div class="bubble bubble--4"></div>
-        <div class="bubble bubble--5"></div>
-        <div class="bubble bubble--6"></div>
-        <div class="bubble bubble--7"></div>
-        <div class="bubble bubble--8"></div>
-        <div class="bubble bubble--9"></div>
-        <div class="bubble bubble--10"></div>
-        <div class="bubble bubble--11"></div>
-        <div class="bubble bubble--12"></div>
-      </Background>
-    </div>
+      </div>
 
       <div
         style={{
@@ -139,7 +116,6 @@ function Main() {
         ></Button>
       </div>
     </Background>
-
   );
 }
 
