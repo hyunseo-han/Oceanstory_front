@@ -2,8 +2,6 @@ import React from "react";
 import { ReactDOM } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import exampleIMG from "./img/example.png";
-
 import Login from "./login/Login";
 import Join from "./login/Join";
 
@@ -120,6 +118,40 @@ const JoinBtnLetter = styled.div`
   color: #ffffff;
 `;
 
+const WriteBtn = styled.div`
+  position: relative;
+  width: 299px;
+  height: 46.51px;
+  top: 329px;
+  margin: auto;
+  background: linear-gradient(
+      109.78deg,
+      #788eff 37.44%,
+      rgba(255, 255, 255, 0) 196.54%
+    ),
+    linear-gradient(108.83deg, #000000 165.46%, rgba(255, 255, 255, 0) 210.88%);
+  border-radius: 9px;
+  cursor: pointer;
+`;
+
+const WriteLetter = styled.div`
+  width: 202.97px;
+  height: 50px;
+  left: 113.01px;
+  top: 698px;
+  font-family: "Saira";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 124.19%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  color: #ffffff;
+`;
+
 const Chracter = styled.div`
   position: relative;
   width: 127px;
@@ -136,15 +168,20 @@ function Main() {
   const goToLogin = () => {
     console.log("goToLogin");
     //return <Navigate to="Login" />;
-    navigate("/login/Login");
+    navigate("/Login");
   };
 
   const goToJoin = () => {
     console.log("goToJoin");
     //return <Navigate to="Join" />;
-    navigate("/login/Join");
+    navigate("/Join");
   };
 
+  const goToWrtie = () => {
+    navigate("/WriteLetter");
+  };
+
+  //onclick버튼으로 바꾸기
   return (
     <div className="Main">
       <Background>
@@ -157,7 +194,10 @@ function Main() {
           <br /> 우리의 이야기
         </SubTitle>
         <Chracter>
-          <img src={exampleIMG} alt="Image" />
+          <img
+            src={process.env.PUBLIC_URL + "/img/example.png"}
+            alt="exampleIMG"
+          />
         </Chracter>
         <LoginBtn>
           <LoginBtnLetter onClick={goToLogin}>로그인</LoginBtnLetter>
@@ -165,6 +205,9 @@ function Main() {
         <JoinBtn>
           <JoinBtnLetter onClick={goToJoin}>회원가입</JoinBtnLetter>
         </JoinBtn>
+        <WriteBtn>
+          <WriteLetter onClick={goToWrtie}>편지 쓰기</WriteLetter>
+        </WriteBtn>
       </Background>
     </div>
   );

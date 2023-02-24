@@ -1,6 +1,7 @@
 import React from "react";
 // import ReactDOM from "react-dom";
 import Styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 //height: 511.69px; 임시로 1000px 설정해놓은것
 const Background = Styled.div`
@@ -42,7 +43,7 @@ const UserName = Styled.div`
   line-height: 124.19%;
   display: flex;
   align-items: center;
-  color: #7e7e7e;
+  color: 000000;
   margin: auto;
 `;
 
@@ -66,7 +67,7 @@ const Password = Styled.div`
   line-height: 124.19%;
   display: flex;
   align-items: center;
-  color: #7e7e7e;
+  color: 000000;
   margin: auto;
 `;
 
@@ -140,6 +141,12 @@ const Div = Styled.div`
 
 //시간이 되면 비밀번호 확인칸도 만들면 좋을듯 (백엔드 없이 프론트로 해결 가능해서!)
 function Login() {
+  const navigate = useNavigate();
+
+  const goToUser = () => {
+    navigate("/User");
+  };
+
   return (
     <Background className="Background">
       <SignIn className="SignIn">LOG IN</SignIn>
@@ -149,8 +156,8 @@ function Login() {
         <Password className="Password">Password</Password>
         <PasswordBox className="PasswordBox"></PasswordBox>
         <Forget className="Forget">forget your password?</Forget>
-        <SignInBtn className="SignInBtn">
-          <SignInBtnLetter className="SignInBtnLetter">LOG in</SignInBtnLetter>
+        <SignInBtn className="SignInBtn" onClick={goToUser}>
+          <SignInBtnLetter className="SignInBtnLetter">LOG IN</SignInBtnLetter>
         </SignInBtn>
       </Div>
     </Background>

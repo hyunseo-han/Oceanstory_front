@@ -1,6 +1,7 @@
 import React from "react";
 // import ReactDOM from "react-dom";
 import Styled from "styled-components";
+import axios from "axios";
 
 //height: 511.69px; 임시로 1000px 설정해놓은것
 const Background = Styled.div`
@@ -22,8 +23,29 @@ const Div = Styled.div`
   justify-content: space-between;
 `;
 
+//config 설정을 axios()에 요청할 수 있습니다.
+
 function WriteLetter() {
-  return <Background className="Background"></Background>;
+  //편지 보내기 버튼에 onclick
+  return (
+    <Background
+      className="Background"
+      onClick={() => {
+        axios({
+          method: "POST",
+          url: ``,
+          data: {
+            writer: "",
+            letterContent: "",
+          },
+        })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => console.log(error));
+      }}
+    ></Background>
+  );
 }
 
 export default WriteLetter;
