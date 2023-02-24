@@ -1,6 +1,8 @@
 import React from "react";
 // import { ReactDOM } from "react";
-import Styled from "styled-components";
+import Styled, { StyleSheetManager } from "styled-components";
+import { useNavigate } from "react-router-dom";
+import Login from "./Login";
 
 //height: 511.69px; 임시로 1000px 설정해놓은것
 const Background = Styled.div`
@@ -42,7 +44,7 @@ const UserName = Styled.div`
   line-height: 124.19%;
   display: flex;
   align-items: center;
-  color: #7e7e7e;
+  color: #000000;
   margin: auto;
 `;
 
@@ -66,7 +68,7 @@ const Password = Styled.div`
   line-height: 124.19%;
   display: flex;
   align-items: center;
-  color: #7e7e7e;
+  color: #000000;
   margin: auto;
 `;
 
@@ -79,21 +81,52 @@ const PasswordBox = Styled.input`
   border: none;
 `;
 
-const Forget = Styled.div`
+const PasswordCheck = Styled.div`
   position: relative;
   width: 228px;
   height: 48px;
-  font-family: "Roboto";
+  font-family: "BM Dohyeon";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 12px;
   line-height: 124.19%;
   display: flex;
   align-items: center;
-  text-align: center;
-  justify-content: center;
+  color: #000000;
   margin: auto;
-  color: #7e7e7e;
+`;
+
+const PasswordCheckBox = Styled.input`
+  position: relative;
+  width: 228px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 6px;
+  border: none;
+`;
+
+const Email = Styled.div`
+  position: relative;
+  width: 228px;
+  height: 48px;
+  font-family: "BM Dohyeon";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 124.19%;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin: auto;
+`;
+
+const EmailBox = Styled.input`
+  position: relative;
+  width: 228px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 6px;
+  border: none;
 `;
 
 const SignInBtn = Styled.div`
@@ -108,10 +141,10 @@ const SignInBtn = Styled.div`
     linear-gradient(108.83deg, #000000 165.46%, rgba(255, 255, 255, 0) 210.88%);
   border-radius: 9px;
   margin: auto;
+  margin-top: 30px;
   cursor : pointer;
 `;
 
-//absolute로 바꾸면 왜 왼쪽으로 이동하는겨...?
 const SignInBtnLetter = Styled.text`
   position: relative;
   width: 93px;
@@ -140,6 +173,12 @@ const Div = Styled.div`
 
 //시간이 되면 비밀번호 확인칸도 만들면 좋을듯 (백엔드 없이 프론트로 해결 가능해서!)
 function Join() {
+  const navigate = useNavigate();
+
+  const goToLogin = () => {
+    navigate("/Login");
+  };
+
   return (
     <div className="Join">
       <Background>
@@ -149,9 +188,12 @@ function Join() {
           <UserNameBox></UserNameBox>
           <Password>Password</Password>
           <PasswordBox></PasswordBox>
-          <Forget>forget your password?</Forget>
-          <SignInBtn>
-            <SignInBtnLetter>Sign in</SignInBtnLetter>
+          <PasswordCheck>Checking Password</PasswordCheck>
+          <PasswordCheckBox></PasswordCheckBox>
+          <Email>E-mail</Email>
+          <EmailBox></EmailBox>
+          <SignInBtn onClick={goToLogin}>
+            <SignInBtnLetter>SIGN IN</SignInBtnLetter>
           </SignInBtn>
         </Div>
       </Background>
