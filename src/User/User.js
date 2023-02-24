@@ -91,7 +91,7 @@ function Main() {
     navigate("/LetterByDate");
   };
 
-  //일 지우면 이상해짐...
+  //일 지우면 이상해짐..
   function CountDownTimer(dt, id) {
     var end = new Date(dt);
     var _second = 1000;
