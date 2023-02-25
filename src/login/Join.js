@@ -1,4 +1,3 @@
-
 import React, { useCallback, useState } from "react";
 import Button from "../common/Button";
 import { useNavigate } from "react-router-dom";
@@ -9,10 +8,8 @@ import {
   PasswordBox,
 } from "../common/AccountStyle";
 
-
 const basicUrl =
   "https://509b-2001-e60-9269-c793-985-f194-41df-a594.jp.ngrok.io";
-
 
 function Join() {
   const [userName, setUserName] = useState(null);
@@ -45,7 +42,6 @@ function Join() {
         alert("회원가입에 실패했습니다.");
       });
   }, [userName, password]);
-
 
   return (
     <AccountContainer>

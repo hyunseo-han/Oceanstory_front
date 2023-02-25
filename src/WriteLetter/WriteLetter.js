@@ -135,7 +135,20 @@ function WriteLetter() {
   return (
     <Background className="Background">
       <FromBox>
-        <FromText placeholder="편지를 보낼 대상을 검색하세요"></FromText>
+        <FromText
+          placeholder="편지를 보낼 대상을 검색하세요"
+          onClick={() => {
+            axios({
+              method: "GET",
+              url: `http://127.0.0.1:8000/letter/search/cjsalsdn/`,
+              data: {},
+            })
+              .then((response) => {
+                console.log(response);
+              })
+              .catch((error) => console.log(error));
+          }}
+        ></FromText>
         <Search>
           <img
             src={process.env.PUBLIC_URL + "/img/search.png"}
