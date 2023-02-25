@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import axios from "axios";
 import Button from "../common/Button";
 import { useNavigate } from "react-router-dom";
@@ -7,9 +7,6 @@ import {
   InputBox,
   PasswordBox,
 } from "../common/AccountStyle";
-
-const basicUrl =
-  "https://30e4-2001-e60-925a-5b10-79-e833-7703-5107.jp.ngrok.io";
 
 function Login() {
   const [userName, setUserName] = useState(null);
@@ -34,7 +31,7 @@ function Login() {
       .then((response) => {
         if (response.status === 200) {
           localStorage.setItem("userToken", response.data.token);
-          navigate("/write-letter");
+          navigate(`/user/${response.data.username}`);
         }
       })
       .catch((response) => {
