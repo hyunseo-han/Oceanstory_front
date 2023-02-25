@@ -82,7 +82,7 @@ function LetterByDate() {
   return (
     <Background className="Background">
       <DateBox>
-        <DateBoxLetter>YY:MM:DD</DateBoxLetter>
+        <DateBoxLetter>YY:MM:DD</DateBoxLetter>s
       </DateBox>
       <ContentContainer>
         {/* {posts.map((post) => (
