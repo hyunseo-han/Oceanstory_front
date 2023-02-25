@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
 import { useEffect } from "react";
+import Button from "../common/Button";
 //Background CSS 바꿀것
 //height: 511.69px;
 const Background = styled.div`
@@ -21,7 +22,7 @@ const Talk = styled.div`
   width: 341px;
   height: 125px;
   top: 195px;
-  background: #ffffff;
+  background: #6fa8ff;
   border-radius: 53px;
   margin: auto;
 `;
@@ -37,40 +38,7 @@ const TalkLetter = styled.div`
   line-height: 133.19%;
   letter-spacing: 0.1em;
   color: #000000;
-`;
-
-const JoinBtn = styled.div`
-  position: relative;
-  width: 299px;
-  height: 46.51px;
-  top: 314.33px;
-  margin: auto;
-  background: linear-gradient(
-      109.78deg,
-      #788eff 37.44%,
-      rgba(255, 255, 255, 0) 196.54%
-    ),
-    linear-gradient(108.83deg, #000000 165.46%, rgba(255, 255, 255, 0) 210.88%);
-  border-radius: 9px;
-  cursor: pointer;
-`;
-
-const JoinBtnLetter = styled.div`
-  width: 202.97px;
-  height: 50px;
-  left: 113.01px;
-  top: 698px;
-  font-family: "Saira";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 124.19%;
-  display: flex;
-  align-items: center;
   text-align: center;
-  justify-content: center;
-  margin: auto;
-  color: #ffffff;
 `;
 
 const Chracter = styled.div`
@@ -85,8 +53,9 @@ const Chracter = styled.div`
 
 function Main() {
   const navigate = useNavigate();
-  const goToMain = () => {
-    navigate("/");
+
+  const goPage = (link) => {
+    navigate(link);
   };
 
   //백엔드에서 이름 받아오기?
@@ -97,7 +66,7 @@ function Main() {
           <TalkLetter>
             편지는 잘 전달 했어!
             <br />
-            XX이는/는 내일
+            XX(이)는 내일
             <br />
             편지를 열어 볼수 있을거야!
           </TalkLetter>
@@ -108,10 +77,25 @@ function Main() {
             alt="exampleIMG"
           />
         </Chracter>
-
-        <JoinBtn>
-          <JoinBtnLetter onClick={goToMain}>메인 화면으로 가기</JoinBtnLetter>
-        </JoinBtn>
+        <div
+          style={{
+            marginTop: "320px",
+            flex: "0 0 35%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          <Button
+            text={"메인 화면으로 돌아가기"}
+            width={"70%"}
+            onClickEvent={() => {
+              goPage(`/`);
+            }}
+          ></Button>
+        </div>
       </Background>
     </div>
   );
