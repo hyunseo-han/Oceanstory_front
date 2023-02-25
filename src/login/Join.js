@@ -41,7 +41,9 @@ function Join() {
         setErrorMessage(response.response.data);
         alert("회원가입에 실패했습니다.");
       });
+
   }, [userName, password, secondPassword, eMail]);
+
 
   return (
     <AccountContainer>

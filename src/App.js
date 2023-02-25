@@ -8,6 +8,8 @@ import LetterByDate from "./LetterByDate/LetterByDate";
 import WriteLetter from "./WriteLetter/WriteLetter";
 import SuccessfullySended from "./SuccessfullySended/SuccessfullySended";
 import Letters from "./LetterList/Letter";
+import ReceivedLetter from "./ReceivedLetter/ReceivedLetter";
+import { GlobalStyle } from "./style";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 
