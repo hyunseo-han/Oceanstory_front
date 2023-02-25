@@ -4,7 +4,6 @@ import Styled from "styled-components";
 import axios from "axios";
 import Button from "../common/Button";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 const Background = Styled.div`
   height: 1000px;
@@ -128,10 +127,6 @@ function WriteLetter() {
     navigate(link);
   };
 
-  const [sender, setSender] = useState("");
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
   return (
     <Background className="Background">
       <FromBox>
@@ -145,18 +140,10 @@ function WriteLetter() {
       </FromBox>
       <LetterBox>
         <Who>
-          작성자:&nbsp;
-          <Writer onChange={(e) => setSender(e.target.value)} value={sender} />
+          작성자: &nbsp;
+          <Writer />
         </Who>
-        <Who>
-          제목:&nbsp;
-          <Writer onChange={(e) => setTitle(e.target.value)} value={title} />
-        </Who>
-        <Text
-          placeholder="내용을 입력하세요"
-          onChange={(e) => setContent(e.target.value)}
-          value={content}
-        />
+        <Text placeholder="내용을 입력하세요" />
       </LetterBox>
       <div
         style={{
@@ -174,21 +161,6 @@ function WriteLetter() {
           width={"70%"}
           onClickEvent={() => {
             goPage(`/SuccessfullySended`);
-          }}
-          onClick={() => {
-            axios({
-              method: "POST",
-              url: `http://127.0.0.1:8000/letter/send/choimj/`,
-              data: {
-                sender: sender,
-                title: title,
-                content: content,
-              },
-            })
-              .then((response) => {
-                console.log(response);
-              })
-              .catch((error) => console.log(error));
           }}
         ></Button>
       </div>

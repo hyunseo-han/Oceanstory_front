@@ -8,6 +8,7 @@ import LetterByDate from "./LetterByDate/LetterByDate";
 import WriteLetter from "./WriteLetter/WriteLetter";
 import SuccessfullySended from "./SuccessfullySended/SuccessfullySended";
 import Letters from "./LetterList/Letter";
+import ReceivedLetter from "./ReceivedLetter/ReceivedLetter";
 //letters랑 letter차이
 
 import { GlobalStyle } from "./style";
