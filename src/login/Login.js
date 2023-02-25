@@ -55,8 +55,8 @@ function Login() {
         ></PasswordBox>
       </div>
       <Button
-        text={"LOG in"}
-        width={"30%"}
+        text={"LOG IN"}
+        width={"70%"}
         onClickEvent={() => {
           login();
         }}

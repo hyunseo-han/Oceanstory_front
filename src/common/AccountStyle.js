@@ -13,7 +13,7 @@ export const AccountContainer = Styled.section`
     height: 59px;
     font-family: "Roboto";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
     font-size: 18px;
     line-height: 133.19%;
     display: flex;
@@ -21,7 +21,6 @@ export const AccountContainer = Styled.section`
     text-align: center;
     justify-content: center;
     letter-spacing: 0.22em;
-    color: #ffffff;
     backdrop-filter: blur(2px);
   }
 

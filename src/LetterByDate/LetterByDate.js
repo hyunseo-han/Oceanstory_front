@@ -11,19 +11,19 @@ const DateBox = Styled.div`
   height: 48px;
   background: #ffffff;
   border-radius: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 
   > div {
-    width: 327px;
-    height: 41px;
     font-family: "Roboto";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 18px;
-    line-height: 133.19%;
+    
     display: flex;
     align-items: center;
-    letter-spacing: 0.22em;
-    color: #000000;
   }
 }
 `;
@@ -37,9 +37,11 @@ const ContentContainer = Styled.div`
   flex:${(props) => `0 0 ${props.width}`};
   padding: 0.5rem;
 
-  background: #ffffff;
+  background: #FFFBEB;
   border-radius: 15px;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: rgb(63 81 181 / 10%) 0px 0px 8px 0px;
 
   > div {
     display: flex;
@@ -169,14 +171,14 @@ function LetterByDate() {
       >
         <Button
           text={"편지 보내기"}
-          width={"50%"}
+          width={"70%"}
           onClickEvent={() => {
             goPage(`/write-letter`);
           }}
         ></Button>
         <Button
           text={"돌아가기"}
-          width={"50%"}
+          width={"70%"}
           onClickEvent={() => {
             goPage(`/user/${router?.pathname.split("/")[2]}`);
           }}

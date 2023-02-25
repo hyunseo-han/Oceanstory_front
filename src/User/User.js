@@ -11,23 +11,24 @@ const Talk = styled.div`
   position: relative;
   width: 341px;
   height: 125px;
-  top: 195px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background: #ffffff;
   border-radius: 53px;
-  margin: auto;
 `;
 
 const TalkLetter = styled.div`
   position: relative;
   width: 311px;
   height: 87px;
-  top: 30px;
-  margin: auto;
   font-weight: 400;
   font-size: 18px;
   line-height: 133.19%;
   letter-spacing: 0.1em;
   color: #000000;
+  text-align: center;
 `;
 
 const Chracter = styled.div`
@@ -36,12 +37,8 @@ const Chracter = styled.div`
   height: 211px;
 `;
 
-/////////////////////////////////////////////////////////////////////////
-
 function User() {
   const navigate = useNavigate();
-  //var open = new Date(2023, 01, 24, 00, 00, 00);
-  //onclick버튼으로 바꾸기
 
   //예람 작업내용
   const router = useLocation();
@@ -55,9 +52,14 @@ function User() {
   const getUserData = useCallback(async () => {
     const userName = router.pathname.split("/")[2];
     axios
-      .get(`/${userName}/`)
+      .get(`/letter/list/count/${userName}/`, {
+        headers: {
+          "Content-Type": `application/json`,
+          "ngrok-skip-browser-warning": "69420",
+        },
+      })
       .then((response) => {
-        setLetterCount(response.letterCount);
+        setLetterCount(response.data.letter_count);
       })
       .catch((response) => {
         alert("정보를 불러올 수 없습니다.");
@@ -101,7 +103,7 @@ function User() {
       {letterCount && (
         <Talk>
           <TalkLetter>
-            오늘 받은 편지의 갯수는 {letterCount}개야!
+            지금까지 받은 편지의 갯수는 {letterCount}개야!
             <br />
             편지는 <span id="timeDeal"></span>후에 볼 수 있어!
           </TalkLetter>
@@ -115,7 +117,7 @@ function User() {
       </Chracter>
       <Button
         text={"편지함 가기"}
-        width={"50%"}
+        width={"70%"}
         onClickEvent={() => {
           goToLetterByDate();
         }}
