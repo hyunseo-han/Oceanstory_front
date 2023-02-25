@@ -58,40 +58,7 @@ const ContentContainer = Styled.div`
 function LetterByDate() {
   const navigate = useNavigate();
   const router = useLocation();
-  const [letterList, setLetterList] = useState({
-    "2023-02-24T02:09:44.775504": [
-      {
-        id: 13,
-        sender: "name",
-        title: "안녕@",
-        content: "name",
-        receiver_username: "choimj",
-      },
-      {
-        id: 14,
-        sender: "name",
-        title: "벚꽃톤 재미있니?",
-        content: "name",
-        receiver_username: "choimj",
-      },
-      {
-        id: 15,
-        sender: "name",
-        title:
-          "매우 긴 제목을 적어보지. 이럴 때는 어떻게 해야할까. 프론트는 고통스럽다. 알려줘, 어떻게 할지. 헤이헤잉",
-        content: "name",
-        receiver_username: "choimj",
-      },
-      {
-        id: 16,
-        sender: "name",
-        title: "name",
-        content: "name",
-        receiver_username: "choimj",
-      },
-    ],
-    "2023-02-25T02:09:44.775504": [],
-  });
+  const [letterList, setLetterList] = useState(null);
 
   const goPage = useCallback(
     async (link) => {
@@ -103,7 +70,12 @@ function LetterByDate() {
   const getLetterData = useCallback(async () => {
     const userName = router.pathname.split("/")[2];
     axios
-      .get(`/letter/list/${userName}/`)
+      .get(`/letter/list/${userName}/`, {
+        headers: {
+          "Content-Type": `application/json`,
+          "ngrok-skip-browser-warning": "69420",
+        },
+      })
       .then((response) => {
         setLetterList(response.data);
       })
@@ -114,15 +86,9 @@ function LetterByDate() {
 
   useEffect(() => {
     if (router) {
-      // getLetterData();
+      getLetterData();
     }
   }, [router]);
-
-  const getTimeText = (timeZone) => {
-    const date = timeZone.split("T")[0]; //.split("-");
-
-    return date;
-  };
 
   const renderLetterList = (letterList) => {
     if (letterList) {
@@ -138,7 +104,7 @@ function LetterByDate() {
             }}
           >
             <DateBox>
-              <div>{getTimeText(timeZone)}</div>
+              <div>{timeZone}</div>
             </DateBox>
             {letters.length > 1 ? (
               <div
@@ -153,7 +119,7 @@ function LetterByDate() {
               >
                 {letters.map((letter) => {
                   return (
-                    <ContentContainer width={"30%"}>
+                    <ContentContainer width={"30%"} key={letter.id}>
                       <div>{letter.title}</div>
                     </ContentContainer>
                   );
