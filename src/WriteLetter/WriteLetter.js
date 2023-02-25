@@ -143,7 +143,7 @@ function WriteLetter() {
               .catch((error) => console.log(error));
           }}
         ></FromText>
-        <Search>
+        <Search onClick={() => alert("편지를 보낼 수 있는 상대입니다.")}>
           <img
             src={process.env.PUBLIC_URL + "/img/search.png"}
             alt="searchImg"
