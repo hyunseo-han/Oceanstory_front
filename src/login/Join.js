@@ -86,8 +86,8 @@ function Join() {
       </div>
 
       <Button
-        text={"JOIN in"}
-        width={"30%"}
+        text={"JOIN IN"}
+        width={"70%"}
         onClickEvent={() => {
           joinIn();
         }}

@@ -7,6 +7,6 @@ export const BasicContainer = Styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
   }
 `;

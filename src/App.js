@@ -18,12 +18,7 @@ const AppLayout = styled.section`
       width: 50vw;
       height: 100vh;
       margin: 0 auto;
-      background: linear-gradient(
-          187.08deg,
-          #91c7ff 5.52%,
-          rgba(255, 255, 255, 0) 106.67%
-        ),
-        #bfb0ff;
+      background: #ecf9ff;
 
       div::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera*/
