@@ -60,7 +60,7 @@ function Main() {
           <TalkLetter>
             편지는 잘 전달 했어!
             <br />
-            XX(이)는 내일
+            민우(이)는 내일
             <br />
             편지를 열어 볼수 있을거야!
           </TalkLetter>
