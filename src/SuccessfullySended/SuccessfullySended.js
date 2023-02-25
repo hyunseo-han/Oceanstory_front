@@ -9,12 +9,6 @@ import Button from "../common/Button";
 //height: 511.69px;
 const Background = styled.div`
   height: 1000px;
-  background: linear-gradient(
-      187.08deg,
-      #91c7ff 5.52%,
-      rgba(255, 255, 255, 0) 106.67%
-    ),
-    #bfb0ff;
 `;
 
 const Talk = styled.div`
@@ -22,7 +16,7 @@ const Talk = styled.div`
   width: 341px;
   height: 125px;
   top: 195px;
-  background: #6fa8ff;
+  background: white;
   border-radius: 53px;
   margin: auto;
 `;

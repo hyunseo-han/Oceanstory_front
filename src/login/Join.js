@@ -41,9 +41,7 @@ function Join() {
         setErrorMessage(response.response.data);
         alert("회원가입에 실패했습니다.");
       });
-
   }, [userName, password, secondPassword, eMail]);
-
 
   return (
     <AccountContainer>
@@ -89,7 +87,7 @@ function Join() {
 
       <Button
         text={"JOIN IN"}
-        width={"70%"}
+        width={"50%"}
         onClickEvent={() => {
           joinIn();
         }}

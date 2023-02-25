@@ -8,12 +8,6 @@ import { useState } from "react";
 
 const Background = Styled.div`
   height: 1000px;
-  background: linear-gradient(
-      187.08deg,
-      #91c7ff 5.52%,
-      rgba(255, 255, 255, 0) 106.67%
-    ),
-    #bfb0ff;
 `;
 
 //username, password쓰는 곳이랑 파란색 signin버튼 묶어놓음
@@ -31,7 +25,7 @@ const FromBox = Styled.div`
   height: 56.64px;
   top: 50px;
   margin: auto;
-  background: #C7D0FD;
+  background: white;
   border-radius: 53px;
 `;
 
@@ -44,7 +38,7 @@ const FromText = Styled.input`
   border: 0;
   border-bottom:1;
   outline: 0;
-  background: #C7D0FD;
+  background: white;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -62,7 +56,7 @@ const LetterBox = Styled.div`
   height: 554px;
   top: 82px;
   margin: auto;
-  background: #C7D0FD;
+  background: #FFFBEB;
   border-radius: 39px;
 `;
 
@@ -88,7 +82,7 @@ const Who = Styled.div`
   border: 0;
   border-bottom:1;
   outline: 0;
-  background: #C7D0FD;
+  background: #FFFBEB;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -118,7 +112,7 @@ const Writer = Styled.input`
   border-top-width:0;
   border-bottom-width:1;  
   outline: 0;
-  background: #C7D0FD;
+  background: #FFFBEB;
 `;
 
 function WriteLetter() {

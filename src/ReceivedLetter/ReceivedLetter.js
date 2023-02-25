@@ -7,12 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const Background = Styled.div`
   height: 1000px;
-  background: linear-gradient(
-      187.08deg,
-      #91c7ff 5.52%,
-      rgba(255, 255, 255, 0) 106.67%
-    ),
-    #bfb0ff;
 `;
 
 //username, password쓰는 곳이랑 파란색 signin버튼 묶어놓음

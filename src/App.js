@@ -3,7 +3,6 @@ import Main from "./Main";
 import Login from "./login/Login";
 import Join from "./login/Join";
 import User from "./User/User";
-import Letter from "./Letter/Letter";
 import LetterByDate from "./LetterByDate/LetterByDate";
 import WriteLetter from "./WriteLetter/WriteLetter";
 import SuccessfullySended from "./SuccessfullySended/SuccessfullySended";
@@ -21,6 +20,7 @@ const AppLayout = styled.section`
       height: 100vh;
       margin: 0 auto;
       background: #ecf9ff;
+      overflow-y: auto;
 
       div::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera*/
@@ -29,6 +29,10 @@ const AppLayout = styled.section`
       div {
         box-sizing: border-box;
       }
+    }
+
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
     }
   }
 `;
@@ -42,7 +46,6 @@ function App() {
           <Route path={"/login"} element={<Login />} />
           <Route path={"/register"} element={<Join />} />
           <Route path={"/user/:userName"} element={<User />} />
-          <Route path={"/letter"} element={<Letter />} />
           <Route
             path={"/letter-by-date/:userName"}
             element={<LetterByDate />}
