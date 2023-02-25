@@ -56,6 +56,7 @@ function App() {
             element={<SuccessfullySended />}
           />
           <Route path={"/Letters"} element={<Letters />} />
+          <Route path={"/Receive"} element={<ReceivedLetter />} />
         </Routes>
       </BrowserRouter>
     </AppLayout>

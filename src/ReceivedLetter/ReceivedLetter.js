@@ -151,10 +151,10 @@ function WriteLetter() {
         }}
       >
         <Button
-          text={"편지 보내기"}
+          text={"편지함 가기"}
           width={"70%"}
           onClickEvent={() => {
-            goPage(`/SuccessfullySended`);
+            goPage(`/letter-by-date/:userName`);
           }}
         ></Button>
       </div>

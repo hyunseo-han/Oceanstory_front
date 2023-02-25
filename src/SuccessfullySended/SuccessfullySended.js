@@ -52,7 +52,6 @@ function Main() {
     navigate(link);
   };
 
-  //백엔드에서 이름 받아오기?
   return (
     <div className="Main">
       <Background>
