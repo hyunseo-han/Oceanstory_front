@@ -9,7 +9,7 @@ import {
 } from "../common/AccountStyle";
 
 const basicUrl =
-  "https://509b-2001-e60-9269-c793-985-f194-41df-a594.jp.ngrok.io";
+  "https://30e4-2001-e60-925a-5b10-79-e833-7703-5107.jp.ngrok.io";
 
 function Login() {
   const [userName, setUserName] = useState(null);
@@ -20,7 +20,7 @@ function Login() {
   const login = useCallback(async () => {
     axios
       .post(
-        `${basicUrl}/users/login/`,
+        `/users/login/`,
         {
           username: userName,
           password: password,
@@ -32,8 +32,10 @@ function Login() {
         }
       )
       .then((response) => {
-        localStorage.setItem({ userToken: response.data.token });
-        navigate("/write-letter");
+        if (response.status === 200) {
+          localStorage.setItem("userToken", response.data.token);
+          navigate("/write-letter");
+        }
       })
       .catch((response) => {
         alert("로그인에 실패했습니다.");

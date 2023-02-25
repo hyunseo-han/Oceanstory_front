@@ -7,6 +7,8 @@ import Letter from "./Letter/Letter";
 import LetterByDate from "./LetterByDate/LetterByDate";
 import WriteLetter from "./WriteLetter/WriteLetter";
 import SuccessfullySended from "./SuccessfullySended/SuccessfullySended";
+import Letters from "./LetterList/Letter";
+//letters랑 letter차이
 
 import { GlobalStyle } from "./style";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -36,7 +38,7 @@ function App() {
         <Routes>
           <Route path={"/"} element={<Main />} />
           <Route path={"/login"} element={<Login />} />
-          <Route path={"/join"} element={<Join />} />
+          <Route path={"/register"} element={<Join />} />
           <Route path={"/user"} element={<User />} />
           <Route path={"/letter"} element={<Letter />} />
           <Route path={"/letter-by-date"} element={<LetterByDate />} />
@@ -45,6 +47,7 @@ function App() {
             path={"/SuccessfullySended"}
             element={<SuccessfullySended />}
           />
+          <Route path={"/Letters"} element={<Letters />} />
         </Routes>
       </BrowserRouter>
     </AppLayout>

@@ -39,12 +39,19 @@ export const AccountContainer = Styled.section`
       font-family: "Roboto";
       font-style: normal;
       font-weight: 400;
-      font-size: 12px;
+      font-size: 0.8rem;
       line-height: 124.19%;
       display: flex;
       align-items: center;
       color: #7e7e7e;
       margin: auto; 
+    }
+
+    div.err-msg {
+      color: red;
+      font-size: 0.6rem;
+      text-align: left;
+      padding: 0.2rem;
     }
 
     input {

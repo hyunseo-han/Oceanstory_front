@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Login from "./login/Login";
+import Join from "./login/Join";
+import "./bubble.css";
 import Button from "./common/Button";
 
 const Background = styled.div`
@@ -46,10 +49,12 @@ const Chracter = styled.div`
 
 function Main() {
   const navigate = useNavigate();
+
   const goPage = (link) => {
     navigate(link);
   };
 
+  //onclick버튼으로 바꾸기
   return (
     <Background>
       <div
@@ -71,7 +76,10 @@ function Main() {
           <br /> 우리의 이야기
         </SubTitle>
         <Chracter>
-          <img src={"/img/example.png"} alt="Image" />
+          <img
+            src={process.env.PUBLIC_URL + "/img/example.png"}
+            alt="exampleIMG"
+          />
         </Chracter>
       </div>
 
