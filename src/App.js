@@ -8,9 +8,6 @@ import LetterByDate from "./LetterByDate/LetterByDate";
 import WriteLetter from "./WriteLetter/WriteLetter";
 import SuccessfullySended from "./SuccessfullySended/SuccessfullySended";
 import Letters from "./LetterList/Letter";
-//letters랑 letter차이
-
-import { GlobalStyle } from "./style";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 
@@ -27,6 +24,14 @@ const AppLayout = styled.section`
           rgba(255, 255, 255, 0) 106.67%
         ),
         #bfb0ff;
+
+      div::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+      }
+
+      div {
+        box-sizing: border-box;
+      }
     }
   }
 `;
@@ -39,9 +44,12 @@ function App() {
           <Route path={"/"} element={<Main />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/register"} element={<Join />} />
-          <Route path={"/user"} element={<User />} />
+          <Route path={"/user/:userName"} element={<User />} />
           <Route path={"/letter"} element={<Letter />} />
-          <Route path={"/letter-by-date"} element={<LetterByDate />} />
+          <Route
+            path={"/letter-by-date/:userName"}
+            element={<LetterByDate />}
+          />
           <Route path={"/write-letter"} element={<WriteLetter />} />
           <Route
             path={"/SuccessfullySended"}
