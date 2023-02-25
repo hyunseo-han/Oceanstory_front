@@ -55,7 +55,7 @@ function User() {
   const getUserData = useCallback(async () => {
     const userName = router.pathname.split("/")[2];
     axios
-      .get(`/${userName}`)
+      .get(`/${userName}/`)
       .then((response) => {
         setLetterCount(response.letterCount);
       })
