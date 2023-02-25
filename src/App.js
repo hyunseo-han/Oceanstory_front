@@ -24,6 +24,14 @@ const AppLayout = styled.section`
           rgba(255, 255, 255, 0) 106.67%
         ),
         #bfb0ff;
+
+      div::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+      }
+
+      div {
+        box-sizing: border-box;
+      }
     }
   }
 `;
