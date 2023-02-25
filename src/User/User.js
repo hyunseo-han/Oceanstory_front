@@ -1,95 +1,76 @@
-import React from "react";
-import { ReactDOM } from "react";
-import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
 import { useEffect } from "react";
-//Background CSS 바꿀것
-//height: 511.69px;
-const Background = styled.div`
-  height: 1000px;
-  background: linear-gradient(
-      187.08deg,
-      #91c7ff 5.52%,
-      rgba(255, 255, 255, 0) 106.67%
-    ),
-    #bfb0ff;
-`;
+import axios from "axios";
+import Button from "../common/Button";
+import { BasicContainer } from "../common/BasicStyle";
 
 const Talk = styled.div`
   position: relative;
   width: 341px;
   height: 125px;
-  top: 195px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background: #ffffff;
   border-radius: 53px;
-  margin: auto;
 `;
 
 const TalkLetter = styled.div`
   position: relative;
   width: 311px;
   height: 87px;
-  top: 30px;
-  margin: auto;
   font-weight: 400;
   font-size: 18px;
   line-height: 133.19%;
   letter-spacing: 0.1em;
   color: #000000;
-`;
-
-const JoinBtn = styled.div`
-  position: relative;
-  width: 299px;
-  height: 46.51px;
-  top: 314.33px;
-  margin: auto;
-  background: linear-gradient(
-      109.78deg,
-      #788eff 37.44%,
-      rgba(255, 255, 255, 0) 196.54%
-    ),
-    linear-gradient(108.83deg, #000000 165.46%, rgba(255, 255, 255, 0) 210.88%);
-  border-radius: 9px;
-  cursor: pointer;
-`;
-
-const JoinBtnLetter = styled.div`
-  width: 202.97px;
-  height: 50px;
-  left: 113.01px;
-  top: 698px;
-  font-family: "Saira";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 124.19%;
-  display: flex;
-  align-items: center;
   text-align: center;
-  justify-content: center;
-  margin: auto;
-  color: #ffffff;
 `;
 
 const Chracter = styled.div`
   position: relative;
   width: 127px;
   height: 211px;
-  top: 230px;
-  margin: auto;
 `;
 
-/////////////////////////////////////////////////////////////////////////
-
-function Main() {
+function User() {
   const navigate = useNavigate();
-  //var open = new Date(2023, 01, 24, 00, 00, 00);
-  //onclick버튼으로 바꾸기
-  const goToLetterByDate = () => {
-    navigate("/LetterByDate");
-  };
+
+  //예람 작업내용
+  const router = useLocation();
+  const goToLetterByDate = useCallback(async () => {
+    const userName = router.pathname.split("/")[2];
+    navigate(`/letter-by-date/${userName}`);
+  }, [router]);
+
+  const [letterCount, setLetterCount] = useState(null);
+
+  const getUserData = useCallback(async () => {
+    const userName = router.pathname.split("/")[2];
+    axios
+      .get(`/letter/list/count/${userName}/`, {
+        headers: {
+          "Content-Type": `application/json`,
+          "ngrok-skip-browser-warning": "69420",
+        },
+      })
+      .then((response) => {
+        setLetterCount(response.data.letter_count);
+      })
+      .catch((response) => {
+        alert("정보를 불러올 수 없습니다.");
+      });
+  }, [router]);
+
+  useEffect(() => {
+    if (router) {
+      getUserData();
+    }
+  }, [router]);
 
   //일 지우면 이상해짐..
   function CountDownTimer(dt, id) {
@@ -118,28 +99,31 @@ function Main() {
   CountDownTimer("02/26/2023 00:00:00", "timeDeal");
 
   return (
-    <div className="Main">
-      <Background>
+    <BasicContainer>
+      {letterCount && (
         <Talk>
           <TalkLetter>
-            오늘 받은 편지의 갯수는 N개야!
+            지금까지 받은 편지의 갯수는 {letterCount}개야!
             <br />
             편지는 <span id="timeDeal"></span>후에 볼 수 있어!
           </TalkLetter>
         </Talk>
-        <Chracter>
-          <img
-            src={process.env.PUBLIC_URL + "/img/example.png"}
-            alt="exampleIMG"
-          />
-        </Chracter>
-
-        <JoinBtn>
-          <JoinBtnLetter onClick={goToLetterByDate}>편지함 가기</JoinBtnLetter>
-        </JoinBtn>
-      </Background>
-    </div>
+      )}
+      <Chracter>
+        <img
+          src={process.env.PUBLIC_URL + "/img/example.png"}
+          alt="exampleIMG"
+        />
+      </Chracter>
+      <Button
+        text={"편지함 가기"}
+        width={"70%"}
+        onClickEvent={() => {
+          goToLetterByDate();
+        }}
+      ></Button>
+    </BasicContainer>
   );
 }
 
-export default Main;
+export default User;

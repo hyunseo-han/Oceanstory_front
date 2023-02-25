@@ -116,7 +116,7 @@ function Main() {
           text={"회원가입"}
           width={"70%"}
           onClickEvent={() => {
-            goPage(`/join`);
+            goPage(`/register`);
           }}
         ></Button>
         <Button
