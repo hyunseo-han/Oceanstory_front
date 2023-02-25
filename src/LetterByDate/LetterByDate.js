@@ -7,17 +7,14 @@ import axios from "axios";
 
 const DateBox = Styled.div`
 &{
-  position: relative;
-  width: 95%;
+  width: 100%;
   height: 48px;
   background: #ffffff;
   border-radius: 39px;
 
   > div {
-    position: absolute;
     width: 327px;
     height: 41px;
-    left: 43px;
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
@@ -37,7 +34,7 @@ const ContentContainer = Styled.div`
   height: 120px;
   
   display: flex;
-  flex: 0 0 30%;
+  flex:${(props) => `0 0 ${props.width}`};
   padding: 0.5rem;
 
   background: #ffffff;
@@ -156,14 +153,16 @@ function LetterByDate() {
               >
                 {letters.map((letter) => {
                   return (
-                    <ContentContainer>
+                    <ContentContainer width={"30%"}>
                       <div>{letter.title}</div>
                     </ContentContainer>
                   );
                 })}
               </div>
             ) : (
-              <div>편지가 없습니다.</div>
+              <ContentContainer width={"100%"}>
+                <div>편지가 없습니다.</div>
+              </ContentContainer>
             )}
           </div>
         );
