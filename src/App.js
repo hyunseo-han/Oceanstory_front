@@ -38,7 +38,7 @@ function App() {
         <Routes>
           <Route path={"/"} element={<Main />} />
           <Route path={"/login"} element={<Login />} />
-          <Route path={"/join"} element={<Join />} />
+          <Route path={"/register"} element={<Join />} />
           <Route path={"/user"} element={<User />} />
           <Route path={"/letter"} element={<Letter />} />
           <Route path={"/letter-by-date"} element={<LetterByDate />} />
